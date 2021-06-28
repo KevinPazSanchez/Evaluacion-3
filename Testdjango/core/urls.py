@@ -4,7 +4,7 @@ from core.views import home,contacto,agregar_proveedores, proveedores,eliminar_p
 app_name='core'
 
 urlpatterns = [
-    path('home/', home, name="home"),
+    path('', home, name="home"),
     path('agregar/', agregar_proveedores , name="agregar"),
     path('proveedores/', proveedores , name="proveedores"),
     path('eliminar/<id>', eliminar_proveedores , name="eliminar"),
