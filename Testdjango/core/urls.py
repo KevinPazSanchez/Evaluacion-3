@@ -11,5 +11,6 @@ urlpatterns = [
     path('modificar/<id>', modificar_proveedores , name="modificar"),
     path('mensaje/', mensaje_modificar, name="mensaje"),
     path('contacto/', contacto, name="contacto"),
+    path('home/', home, name="home"),
 
 ]
