@@ -8,6 +8,10 @@ def home(request):
 
     return render(request, 'core/home.html')
 
+def contacto(request):
+
+    return render(request, 'core/contacto.html')
+
 
 def agregar_proveedores(request):
 
