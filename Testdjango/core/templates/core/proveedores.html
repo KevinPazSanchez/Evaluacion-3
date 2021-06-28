@@ -87,8 +87,8 @@
                         <td>{{ p.descripcion  }}</td>
                         <td>{{ p.servicio  }}</td>
                         <td>
-                            <a href="{% url 'core:modificar' p.id  %}">Modificar</a>
-                            <a href="{% url 'core:eliminar' p.id  %}">Eliminar</a>
+                            <a class="btn btn-primary" href="{% url 'core:modificar' p.id  %}">Modificar</a>
+                            <a class="btn btn-primary" href="{% url 'core:eliminar' p.id  %}">Eliminar</a>
                         </td>                                             
                     </tr>      
                     {% endfor %}              
