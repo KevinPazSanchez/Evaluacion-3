@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import home,contacto,agregar_proveedores, proveedores,eliminar_proveedores,modificar_proveedores,mensaje_modificar
+from core.views import home,contacto,seccion_gatos,seccion_perros,agregar_proveedores, proveedores,eliminar_proveedores,modificar_proveedores,mensaje_modificar
 
 app_name='core'
 
@@ -12,5 +12,7 @@ urlpatterns = [
     path('mensaje/', mensaje_modificar, name="mensaje"),
     path('contacto/', contacto, name="contacto"),
     path('home/', home, name="home"),
-
+    path('gatos/', seccion_gatos, name="gatos"),
+    path('perros/', seccion_perros, name="perros"),
+    
 ]
