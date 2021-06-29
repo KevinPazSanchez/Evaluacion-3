@@ -63,49 +63,50 @@
         <main class="flex-fill">
             <div class="row">
                 <div class="col-12">
-                    <a href="/agregar/">
-                        <b>Agregar</b>                        
-                    </a>                                 
-                </div>  
-                <br> <br>                     
-            </div>    
-        <div class="container">
-            <div class="row">
-                {{mensaje}}
-                <table>                    
-                    <tr>
-                        <th>Rut</th>
-                        <th>Razon Social</th>
-                        <th>Descripcion</th>
-                        <th>Servicio</th>    
-                        <th>Operacion</th>  
-                    </tr>    
-                    {% for p in proveedores %} 
-                    <tr>
-                        <td>{{ p.rut | title }}</td>
-                        <td>{{ p.razon_social | title }}</td>
-                        <td>{{ p.descripcion  }}</td>
-                        <td>{{ p.servicio  }}</td>
-                        <td>
-                            <a class="btn btn-primary" href="{% url 'core:modificar' p.id  %}">Modificar</a>
-                            <a class="btn btn-primary" href="{% url 'core:eliminar' p.id  %}">Eliminar</a>
-                        </td>                                             
-                    </tr>      
-                    {% endfor %}              
-                </table>
-            </div> 
-            <br> <br>               
-        </div>   
-        <footer>
-            <div class="row bg-dark">
-                <div class="col-12 text-center text-warning">
-                        Programación Web<br/>
-                        Instituto Profesional Duoc UC
+                    <h2>Proveedores</h2>
+                    <a class="btn btn-danger" href="/agregar/">
+                        <b>Agregar</b>
+                    </a>
                 </div>
+                <br> <br>
             </div>
-        </footer>
-    </div>   
-           
+            <div class="container">
+                <div class="row">
+                    {{mensaje}}
+                    <table>
+                        <tr>
+                            <th>Rut</th>
+                            <th>Razon Social</th>
+                            <th>Descripcion</th>
+                            <th>Servicio</th>
+                            <th>Operacion</th>
+                        </tr>
+                        {% for p in proveedores %}
+                        <tr>
+                            <td>{{ p.rut | title }}</td>
+                            <td>{{ p.razon_social | title }}</td>
+                            <td>{{ p.descripcion }}</td>
+                            <td>{{ p.servicio }}</td>
+                            <td>
+                                <a class="btn btn-primary" href="{% url 'core:modificar' p.id  %}">Modificar</a>
+                                <a class="btn btn-primary" href="{% url 'core:eliminar' p.id  %}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <br> <br>
+            </div>
+            <footer>
+                <div class="row bg-dark">
+                    <div class="col-12 text-center text-warning">
+                        Programación Web<br />
+                        Instituto Profesional Duoc UC
+                    </div>
+                </div>
+            </footer>
+    </div>
+
 </body>
 
 </html>
