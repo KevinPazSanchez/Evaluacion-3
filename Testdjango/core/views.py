@@ -31,7 +31,8 @@ def agregar_proveedores(request):
         formulario = ProveedorForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect(to='core:mensaagrega')
+            messages.success(request, 'Proveedor agregado correctamente')
+            return redirect(to='core:proveedores')
         data["form"] = formulario
     
     return render(request, 'core/agregar_proveedores.html',data)
@@ -62,16 +63,8 @@ def modificar_proveedores(request,id):
     if request.method == 'POST':
         formulario = ProveedorForm(data=request.POST, instance=proveedores)
         if formulario.is_valid():             
-            formulario.save()            
-            return redirect(to='core:mensaje')
+            formulario.save()       
+            messages.success(request, 'Proveedor modificado correctamente')
+            return redirect(to='core:proveedores')                 
         data["form"] = formulario
-    return render(request, 'core/modificar_proveedor.html', data)
-
-def mensaje_modificar(request):
-
-    return render(request, 'core/mensaje_modificar.html',{})
-
-def mensaje_agregar(request):
-
-    return render(request, 'core/mensaje_agregar.html',{})
-   
+    return render(request, 'core/modificar_proveedor.html', data)   
