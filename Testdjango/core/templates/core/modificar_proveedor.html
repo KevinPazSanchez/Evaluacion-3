@@ -60,16 +60,11 @@
                 </li>
             </ul>
         </nav>
-        <h1>Modificar Proveedores</h1>
+        <h2>Modificar Proveedores</h2>
         <br>
         <form action="" method="POST">
             {% csrf_token %}
-            {{form.rut.label}}{{form.rut}}
-            {{form.razon_social.label}}{{form.razon_social}}
-            {{form.descripcion.label}}{{form.descripcion}}
-            {{form.telefono.label}}{{form.telefono}}
-            {{form.email.label}}{{form.email}}
-            {{form.servicio.label}}{{form.servicio}}
+            {{form.as_p}}
             <br> <br>
 
             <input type="submit" class="btn btn-danger" value="Modificar" />
