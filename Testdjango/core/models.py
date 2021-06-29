@@ -15,7 +15,7 @@ class Proveedor(models.Model):
     descripcion=models.CharField(max_length=100)
     telefono=models.CharField(max_length=15)
     email=models.CharField(max_length=50)
-    servicio=models.CharField(max_length=50)
+    servicio=models.ForeignKey(Servicio, on_delete=models.CASCADE)
   
     def str(self):
         return self.rut
