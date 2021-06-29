@@ -1,6 +1,5 @@
 table {
-    background-color: white;
-    text-align: center;
+    background-color: white;    
     width: 100%;
     border-collapse: collapse;
   
@@ -22,6 +21,6 @@ table {
   }
   
   tr:hover td {
-    background-color: teal;
+    background-color: rgb(27, 190, 219);
     color: white;
   }
