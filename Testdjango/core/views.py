@@ -12,6 +12,14 @@ def contacto(request):
 
     return render(request, 'core/contacto.html')
 
+def seccion_gatos(request):
+
+    return render(request, 'core/seccion-gatos.html')
+
+def seccion_perros(request):
+
+    return render(request, 'core/seccion-perros.html')
+
 
 def agregar_proveedores(request):
 
