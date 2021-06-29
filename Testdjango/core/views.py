@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .forms import ProveedorForm
 from .models import Proveedor
+from django.contrib import messages
 
 # Create your views here.
 
@@ -30,9 +31,8 @@ def agregar_proveedores(request):
         formulario = ProveedorForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Proveedor agregado exitosamente"
-        else:
-            data["form"] = formulario
+            return redirect(to='core:mensaagrega')
+        data["form"] = formulario
     
     return render(request, 'core/agregar_proveedores.html',data)
 
@@ -50,6 +50,7 @@ def eliminar_proveedores(request,id):
 
     proveedores = get_object_or_404(Proveedor, id=id)
     proveedores.delete()
+    messages.success(request, 'Proveedor eliminado correctamente')
     return redirect(to='core:proveedores')   
 
 def modificar_proveedores(request,id):
@@ -69,4 +70,8 @@ def modificar_proveedores(request,id):
 def mensaje_modificar(request):
 
     return render(request, 'core/mensaje_modificar.html',{})
+
+def mensaje_agregar(request):
+
+    return render(request, 'core/mensaje_agregar.html',{})
    
