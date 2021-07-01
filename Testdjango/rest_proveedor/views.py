@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response 
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Proveedor 
 from .serializers import ProveedorSerializer
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 @csrf_exempt
 @api_view(['GET'])
+@permission_classes ((IsAuthenticated,))
 def lista_proveedores(request):
     """
     Lista todos los Proveedores
@@ -18,6 +22,7 @@ def lista_proveedores(request):
 
 @csrf_exempt
 @api_view(['POST'])
+@permission_classes ((IsAuthenticated,))
 def agregar_proveedor(request):
     if request.method == 'POST':
         data = JSONParser().parsers(request)
@@ -28,6 +33,7 @@ def agregar_proveedor(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 @api_view(['GET','PUT','DELETE'])
+@permission_classes ((IsAuthenticated,))
 def detalle_proveedor(request,id):
     """
     Get, update, o delete de un proveedor en particular
