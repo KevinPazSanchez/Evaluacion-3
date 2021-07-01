@@ -25,7 +25,7 @@ def lista_proveedores(request):
 @permission_classes ((IsAuthenticated,))
 def agregar_proveedor(request):
     if request.method == 'POST':
-        data = JSONParser().parsers(request)
+        data = JSONParser().parse(request)
         serializer = ProveedorSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
